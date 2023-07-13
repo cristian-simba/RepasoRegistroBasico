@@ -24,14 +24,17 @@ public class registro {
                 String filePath = "datos.txt";
                 Datos ingreso = new Datos(nombreIngreso,edadIngreso, sexoIngreso);
                 try(
-                        FileOutputStream fileOut=new FileOutputStream(filePath);
-                        ObjectOutputStream obOut=new ObjectOutputStream(fileOut);
+                    FileOutputStream fileOut=new FileOutputStream(filePath);
+                    ObjectOutputStream obOut=new ObjectOutputStream(fileOut);
                 ){
                     obOut.writeObject(ingreso);
                     System.out.println("archivo escrito correctamente");
                 } catch (IOException ex) {
                     throw new RuntimeException(ex);
                 }
+                nombre.setText("");
+                edad.setText("");
+                sexo.setText("");
             }
         });
     }
